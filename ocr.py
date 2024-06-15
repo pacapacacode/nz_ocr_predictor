@@ -39,7 +39,7 @@ st.write(filtered_historic_data)
 st.write("Source: RBNZ")
 
 # Get OCR forecast data
-ocr_forecasts = pd.read_excel("./data/predictions_base.csv", header=0)
+ocr_forecasts = pd.read_csc("./data/predictions_base.csv", header=0)
 ocr_forecasts.set_index('Date',inplace=True)
 
 st.header("Forecasts")
