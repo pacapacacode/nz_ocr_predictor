@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib
 import matplotlib.pyplot as plt
 from datetime import datetime
 import plotly.graph_objs as go
@@ -49,10 +48,12 @@ selected_columns = st.multiselect('Select forecasts', ocr_forecasts.columns)
 
 fig2 = go.Figure()
 
-for col in selected_columns:
-    fig2.add_trace(go.Scatter(x=ocr_forecasts.index, y=ocr_forecasts[col], mode='lines', name=col))
+st.line_chart(ocr_forecasts, x='index', y=selected_columns)
 
-st.plotly_chart(fig2, use_container_width=True)
+#for col in selected_columns:
+#    fig2.add_trace(go.Scatter(x=ocr_forecasts.index, y=ocr_forecasts[col], mode='lines', name=col))
+
+#st.plotly_chart(fig2, use_container_width=True)
 
 # Scenario 1: Sticky inflation
 predictions_sticky = pd.read_csv("./data/predictions_sticky.csv", header=0)
