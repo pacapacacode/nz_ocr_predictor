@@ -46,14 +46,12 @@ st.subheader("Baseline forecast using RBNZ projections")
 
 selected_columns = st.multiselect('Select forecasts', ocr_forecasts.columns, default="RBNZ")
 
-#fig2 = go.Figure()
+fig2 = go.Figure()
 
-st.line_chart(x=ocr_forecasts.index, y=ocr_forecasts[selected_columns])
+for col in selected_columns:
+    fig2.add_trace(go.Scatter(x=ocr_forecasts.index, y=ocr_forecasts[col], mode='lines', name=col))
 
-#for col in selected_columns:
-#    fig2.add_trace(go.Scatter(x=ocr_forecasts.index, y=ocr_forecasts[col], mode='lines', name=col))
-
-#st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2, use_container_width=True)
 
 # Scenario 1: Sticky inflation
 predictions_sticky = pd.read_csv("./data/predictions_sticky.csv", header=0)
