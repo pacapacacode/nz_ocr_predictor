@@ -44,9 +44,9 @@ ocr_forecasts.set_index('Date',inplace=True)
 st.header("Forecasts")
 st.subheader("Baseline forecast using RBNZ projections")
 
-selected_columns = st.multiselect('Select forecasts', ocr_forecasts.columns)
+selected_columns = st.multiselect('Select forecasts', ocr_forecasts.columns, default="RBNZ")
 
-fig2 = go.Figure()
+#fig2 = go.Figure()
 
 st.line_chart(ocr_forecasts, x='index', y=selected_columns)
 
