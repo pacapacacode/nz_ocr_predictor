@@ -50,7 +50,7 @@ selected_columns = st.multiselect('Select forecasts', ocr_forecasts.columns, def
 
 st.line_chart(ocr_forecasts, x='index', y=ocr_forecast[selected_columns])
 
-for col in selected_columns:
+#for col in selected_columns:
 #    fig2.add_trace(go.Scatter(x=ocr_forecasts.index, y=ocr_forecasts[col], mode='lines', name=col))
 
 #st.plotly_chart(fig2, use_container_width=True)
