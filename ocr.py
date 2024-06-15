@@ -60,7 +60,7 @@ predictions_sticky.set_index('Date', inplace=True)
 
 st.subheader("Scenario 1: Persistent inflation for 6 quarters")
 
-selected_columns2 = st.multiselect('Select forecasts', predictions_sticky.columns)
+selected_columns2 = st.multiselect('Select forecasts', predictions_sticky.columns, default="Linear Regression")
 
 fig3 = go.Figure()
 
